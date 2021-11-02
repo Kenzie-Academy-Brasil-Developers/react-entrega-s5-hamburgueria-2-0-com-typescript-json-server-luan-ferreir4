@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from "react";
-// import { InputBox } from "../../Styles/ComponentsStyles/input";
+import { InputBox, InputContainer } from "../../Styles/ComponentsStyles/InputStyle";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -16,10 +16,10 @@ export const Input = ({
   ...rest
 }: InputProps) => {
   return (
-    <div>
+    <InputBox>
       {label && <p>{label}</p>}
-      <input {...register(text)} {...rest} />
+      <InputContainer {...register(text)} {...rest} />
       {error && <p>{error}</p>}
-    </div>
+    </InputBox>
   );
 };

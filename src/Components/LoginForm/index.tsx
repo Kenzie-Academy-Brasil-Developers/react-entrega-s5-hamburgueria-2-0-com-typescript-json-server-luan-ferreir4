@@ -1,12 +1,12 @@
 import { Input } from "../Input";
+import { Link } from "react-router-dom"
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { IUserDataLogin } from "../../Interfaces/UserData";
 import { UseSignIn } from "../../Providers/SignIn";
-// import { UseAuth } from "../../Providers/Auth";
-// import { LoginContainer, LoginForm } from "../../Styles/ComponentsStyles/LoginContainer";
+import { FormContainer, SignInForm, FooterForm } from "../../Styles/ComponentsStyles/SignInForm";
 
 export const LoginForm = () => {
   const { signIn } = UseSignIn();
@@ -33,10 +33,10 @@ export const LoginForm = () => {
   };
 
   return (
-    <div>
+    <FormContainer>
       <h3>Login:</h3>
 
-      <form onSubmit={handleSubmit(handleLogin)}>
+      <SignInForm onSubmit={handleSubmit(handleLogin)}>
         <Input
           placeholder="Email"
           register={register}
@@ -51,7 +51,11 @@ export const LoginForm = () => {
           error={errors.password?.message}
         />
         <button type="submit">Entrar</button>
-      </form>
-    </div>
+      </SignInForm>
+      <FooterForm>
+          <small>Crie sua conta para saborear muitas delícias e matar sua fome!</small>
+          <button><Link className="link" to="/register">Cadastrar</Link></button>
+      </FooterForm>
+    </FormContainer>
   );
 }

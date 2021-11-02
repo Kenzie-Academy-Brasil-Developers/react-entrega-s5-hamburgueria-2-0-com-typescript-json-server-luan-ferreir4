@@ -1,21 +1,11 @@
-import { LoginForm } from "../../Components/LoginForm"
-import { Link } from "react-router-dom"
+import { LoginForm } from "../../Components/LoginForm";
+import { TopContent } from "../../Components/TopContent";
+import { Page } from "../../Styles/PageStyles";
 export const SignInPage = () => {
-    return(
-        <div>
-            <div>
-            <h1>Burguer</h1>
-            <h3>Kenzie</h3>
-            </div>
-            <div>
-                <div>icon</div>
-                <p>A vida é como um sanduíche, é preciso recheá-la com os melhores ingredientes.</p>
-            </div>
-            <LoginForm/>
-            <div>
-                <small>Não possui uma conta?</small>
-                <Link to="/register">registre-se!</Link>
-            </div>
-        </div>
-    )
-}
+  return (
+    <Page>
+      <TopContent />
+      <LoginForm />
+    </Page>
+  );
+};
