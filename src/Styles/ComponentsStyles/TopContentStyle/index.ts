@@ -4,6 +4,7 @@ export const TopContentContainer = styled.section`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
+width: 100%;
 `;
 
 export const TitleContainer = styled.div`
@@ -29,9 +30,10 @@ display: flex;
 align-items: center;
 justify-content: space-around;
 
-width: inherit;
+width: 92vw;
+max-width: 480px;
 height: 95px;
-margin: 0 auto 20px;
+margin: 0 auto;
 border: 1px solid var(--gray-light);
 border-radius: 5px;
 

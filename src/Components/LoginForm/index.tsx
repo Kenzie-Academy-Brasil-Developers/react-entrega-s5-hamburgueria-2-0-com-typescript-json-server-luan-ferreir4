@@ -1,15 +1,17 @@
 import { Input } from "../Input";
-import { Link } from "react-router-dom"
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { IUserDataLogin } from "../../Interfaces/UserData";
 import { UseSignIn } from "../../Providers/SignIn";
-import { FormContainer, SignInForm, FooterForm } from "../../Styles/ComponentsStyles/SignInForm";
+import { useHistory } from "react-router-dom"
+
+import { Container, Form, FooterForm } from "../../Styles/ComponentsStyles/FormStyles";
 
 export const LoginForm = () => {
   const { signIn } = UseSignIn();
+  const history = useHistory();
 
   const loginSchema = yup.object().shape({
     email: yup.string().required("Campo obrigatório").email("Email invalido"),
@@ -33,10 +35,10 @@ export const LoginForm = () => {
   };
 
   return (
-    <FormContainer>
+    <Container>
       <h3>Login:</h3>
 
-      <SignInForm onSubmit={handleSubmit(handleLogin)}>
+      <Form onSubmit={handleSubmit(handleLogin)}>
         <Input
           placeholder="Email"
           register={register}
@@ -51,11 +53,11 @@ export const LoginForm = () => {
           error={errors.password?.message}
         />
         <button type="submit">Entrar</button>
-      </SignInForm>
+      </Form>
       <FooterForm>
           <small>Crie sua conta para saborear muitas delícias e matar sua fome!</small>
-          <button><Link className="link" to="/register">Cadastrar</Link></button>
+          <button onClick={()=>history.push("/register")}>Cadastrar</button>
       </FooterForm>
-    </FormContainer>
+    </Container>
   );
 }

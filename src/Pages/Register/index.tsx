@@ -1,13 +1,9 @@
 import { RegisterForm } from "../../Components/RegisterForm"
-import { Link } from "react-router-dom"
+import { Page } from "../../Styles/PageStyles/PageRegisterStyle"
 export const RegisterPage = () => {
     return(
-        <div>
+        <Page>
             <RegisterForm/>
-            <div>
-                <small>Já possui uma conta?</small>
-                <Link to="/">Faça login!</Link>
-            </div>
-        </div>
+        </Page>
     )
 }

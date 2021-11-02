@@ -1,28 +1,29 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.form`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: inherit;
-  height: 440px;
+  width: 92vw;
+  max-width: 480px;
   padding: 20px;
+  margin: 20px auto 0;
   border: 1px solid var(--gray-light);
   border-radius: 5px;
 
-  h3{
+  h3 {
     font-size: 18px;
     margin-bottom: 20px;
   }
 `;
-export const SignInForm = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
 
-  button{
+  button {
     height: 60px;
     width: 100%;
     padding: 0px 40px;
@@ -35,17 +36,15 @@ export const FooterForm = styled.div`
   display: flex;
   flex-direction: column;
   margin: 18px 0 10px;
-
-  small{
+  width: 100%;
+  small {
     color: var(--gray-medium);
     margin-bottom: 18px;
   }
-  button{
+  button {
     height: 55px;
-    .link{
-      text-decoration: none;
-      color: var(--gray-dark);
-    }
+    color: var(--gray-dark);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
   }
-
 `;

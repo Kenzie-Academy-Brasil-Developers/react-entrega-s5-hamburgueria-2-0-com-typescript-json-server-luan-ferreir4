@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { IUserDataRegister } from "../../Interfaces/UserData";
 import { UseRegister } from "../../Providers/Register";
-// import { LoginContainer, LoginForm } from "../../Styles/ComponentsStyles/LoginContainer";
+import { useHistory } from "react-router-dom"
+
+import { Container, Form, FooterForm } from "../../Styles/ComponentsStyles/FormStyles";
 
 export const RegisterForm = () => {
   const { registerUser } = UseRegister();
-
+  const history = useHistory()
   const registerSchema = yup.object().shape({
     name: yup.string().required("Campo obrigatório").min(4, "Mínimo de 4 caracteres").max(25, "Maximo de 25 caracteres"),
     email: yup.string().required("Campo obrigatório").email("Email invalido"),
@@ -33,10 +35,10 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div>
+    <Container>
       <h3>Cadastro:</h3>
 
-      <form onSubmit={handleSubmit(handleRegister)}>
+      <Form onSubmit={handleSubmit(handleRegister)}>
       <Input
           placeholder="Nome de usuário"
           register={register}
@@ -57,7 +59,11 @@ export const RegisterForm = () => {
           error={errors.password?.message}
         />
         <button type="submit">Cadastrar</button>
-      </form>
-    </div>
+      </Form>
+      <FooterForm>
+          <small>Já possui uma conta?</small>
+          <button onClick={()=> history.push("/")}>Logar</button>
+      </FooterForm>
+    </Container>
   );
 }

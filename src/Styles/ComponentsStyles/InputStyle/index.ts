@@ -6,6 +6,11 @@ export const InputBox = styled.form`
   align-items: flex-start;
   margin-bottom: 20px;
   width: inherit;
+
+  small{
+    margin: 3px 0 0 10px;
+    color: var(--feedback-error);
+  }
 `;
 
 export const InputContainer = styled.input`
