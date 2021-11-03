@@ -15,13 +15,26 @@ import {
   NavButtons,
   TopBarContainer,
 } from "../../Styles/ComponentsStyles/TopBarStyle";
+import { useState } from "react";
+import { UseProducts } from "../../Providers/Products";
 
 interface ITopBarProp {
   setShowCart: (value: boolean) => void;
 }
 
 export const TopBar = ({ setShowCart }: ITopBarProp) => {
+  const [token] = useState(() => {
+    const current = localStorage.getItem("token") || "";
+    return JSON.parse(current);
+  });
+  
   const { signOut } = UseSignIn();
+  const {getFilteredlist} = UseProducts();
+  const [searchText, setSearchText] = useState<string>("");
+
+  const handleSearch=()=>{
+    getFilteredlist(token, searchText);
+  }
 
   return (
     <TopBarContainer>
@@ -33,14 +46,17 @@ export const TopBar = ({ setShowCart }: ITopBarProp) => {
       </div>
 
       <SearchInputBox>
-        <SearchInputContainer placeholder="buscar por categoria" />
-        <IconBox>
+        <SearchInputContainer
+          placeholder="buscar por categoria"
+          onChange={(evt) => setSearchText(evt.target.value)}
+        />
+        <IconBox onClick={handleSearch}>
           <BiSearchAlt />
         </IconBox>
       </SearchInputBox>
 
       <NavButtons>
-        <button onClick={()=> setShowCart(true)}>
+        <button onClick={() => setShowCart(true)}>
           <BsCart4 />
         </button>
         <button onClick={signOut}>

@@ -10,17 +10,39 @@ export const ProductsList = () => {
     return JSON.parse(current);
   });
 
-  const { getProducts, productsList } = UseProducts();
+  const { getProducts, productsList, isFiltered, filteredList } = UseProducts();
 
   useEffect(() => {
     getProducts(token);
   });
 
   return (
-      <PdtListContainer>
-        {productsList.map((item) => (
-          <ProductsCard key={item.id} name={item.name} price={item.price} id={item.id} category={item.category}/>
-        ))}
-      </PdtListContainer>
+    <>
+      {!isFiltered ? (
+        <PdtListContainer>
+          {productsList.map((item) => (
+            <ProductsCard
+              key={item.id}
+              name={item.name}
+              price={item.price}
+              id={item.id}
+              category={item.category}
+            />
+          ))}
+        </PdtListContainer>
+      ) : (
+        <PdtListContainer>
+          {filteredList.map((item) => (
+            <ProductsCard
+              key={item.id}
+              name={item.name}
+              price={item.price}
+              id={item.id}
+              category={item.category}
+            />
+          ))}
+        </PdtListContainer>
+      )}
+    </>
   );
 };
