@@ -6,7 +6,6 @@ export const GlobalStyles = createGlobalStyle`
         border: none;
         box-sizing: border-box;
         font-family: 'Inter', sans-serif;
-        font-size: 16px;
     }
     button{
         border: 1px solid transparent;

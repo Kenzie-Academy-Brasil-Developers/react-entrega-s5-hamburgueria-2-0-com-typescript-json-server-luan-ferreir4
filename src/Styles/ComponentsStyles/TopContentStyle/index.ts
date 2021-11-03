@@ -27,8 +27,8 @@ export const TitleContainer = styled.div`
     margin-bottom: 2px;
   }
   @media (min-width: 1024px) {
-    width: 500px;
-    margin-bottom: 40px;
+    width: 300px;
+    margin: 0;
     h1 {
       font-size: 34px;
     }
@@ -51,9 +51,13 @@ export const IconContainer = styled.div`
   border-radius: 5px;
 
   div {
-    background-color: lightblue;
+    background-color: var(--gray-light);
     height: 60px;
     width: 60px;
+    line-height: 65px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--color-primary);
     border-radius: 5px;
   }
 
@@ -63,5 +67,8 @@ export const IconContainer = styled.div`
     font-size: 14px;
     line-height: 22px;
     color: var(--gray-medium);
+  }
+  @media (min-width: 1024px) {
+    margin-top: 40px;
   }
 `;
