@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { UseProducts } from "../../Providers/Products";
-import { ListContainer } from "../../Styles/ComponentsStyles/ListContainer";
+import { PdtListContainer } from "../../Styles/ComponentsStyles/ListContainer";
 import { ProductsCard } from "../ProductCard";
 
 export const ProductsList = () => {
@@ -17,10 +17,10 @@ export const ProductsList = () => {
   });
 
   return (
-      <ListContainer>
+      <PdtListContainer>
         {productsList.map((item) => (
           <ProductsCard key={item.id} name={item.name} price={item.price} id={item.id} category={item.category}/>
         ))}
-      </ListContainer>
+      </PdtListContainer>
   );
 };

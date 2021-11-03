@@ -11,7 +11,7 @@ export const HomePage = () => {
       <h2>Produtos</h2>
       <ProductsList />
       {showCart &&
-        <Cart />
+        <Cart setShowCart={setShowCart}/>
       }
     </div>
   );

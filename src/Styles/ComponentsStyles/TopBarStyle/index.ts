@@ -8,7 +8,6 @@ export const TopBarContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
   height: 60px;
   padding: 0 10px;
   background-color: var(--gray-light);

@@ -1,28 +1,27 @@
 import { useState } from "react";
 import { IBurger } from "../../Interfaces/Burger";
 import { UseUser } from "../../Providers/User";
+import { CartCardContainer } from "../../Styles/ComponentsStyles/CartCardStyle";
 
-export const CartCard = ({name, price, category,id }:IBurger) => {
-
+export const CartCard = ({ name, price, category, id }: IBurger) => {
   const [token] = useState(() => {
     const current = localStorage.getItem("token") || "";
     return JSON.parse(current);
   });
 
-  const {deleteFromUserCart} = UseUser();
+  const { deleteFromUserCart } = UseUser();
 
-  const handleDel = () =>{
-    deleteFromUserCart(id, token)
-  }
+  const handleDel = () => {
+    deleteFromUserCart(id, token);
+  };
 
   return (
-    <div>
-      <h5>{name}</h5>
-      <div>
-        <p>{price}</p>
-        {/* <p>{category}</p> */}
-      </div>
+    <CartCardContainer>
+      <div className="info">
+        <h5 className="title">{name}</h5>
+        <p className="price">{price}</p>
       <button onClick={handleDel}>Remover</button>
-    </div>
+      </div>
+    </CartCardContainer>
   );
 };

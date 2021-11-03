@@ -18,7 +18,7 @@ export const TopContent = () => {
           <FiShoppingBag />
         </div>
         <p>
-          A vida é como um sanduíche, é preciso recheá-la com os <b>melhores</b>{" "}
+          A vida é como um sanduíche, é preciso recheá-la com os <b>melhores</b>
           ingredientes.
         </p>
       </IconContainer>
