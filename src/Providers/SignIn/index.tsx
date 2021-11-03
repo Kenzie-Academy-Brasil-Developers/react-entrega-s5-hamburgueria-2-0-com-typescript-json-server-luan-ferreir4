@@ -31,8 +31,9 @@ export const SignInProvider = ({ children }: IProvidersProps) => {
 
         localStorage.setItem("userId", JSON.stringify(res.data.user.id));
       
-        history.push("/home");
-      })
+      }).then(()=>
+        history.push("/home")
+      )
       .catch((err) => console.log(err));
   };
 
