@@ -43,6 +43,10 @@ export const SearchInputBox = styled.div`
     width: 350px;
     margin: auto 0 auto 50px;
   }
+  @media (min-width: 1024px) {
+    width: 450px;
+    margin: auto 0 auto 100px;
+  }
 `;
 export const SearchInputContainer = styled.input`
   height: 90%;

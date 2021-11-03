@@ -16,7 +16,11 @@ import {
   TopBarContainer,
 } from "../../Styles/ComponentsStyles/TopBarStyle";
 
-export const TopBar = () => {
+interface ITopBarProp {
+  setShowCart: (value: boolean) => void;
+}
+
+export const TopBar = ({ setShowCart }: ITopBarProp) => {
   const { signOut } = UseSignIn();
 
   return (
@@ -36,7 +40,7 @@ export const TopBar = () => {
       </SearchInputBox>
 
       <NavButtons>
-        <button>
+        <button onClick={()=> setShowCart(true)}>
           <BsCart4 />
         </button>
         <button onClick={signOut}>
