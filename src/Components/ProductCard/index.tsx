@@ -2,8 +2,9 @@ import { useState } from "react";
 import { IBurger } from "../../Interfaces/Burger";
 import { UseProducts } from "../../Providers/Products";
 import { UseUser } from "../../Providers/User";
+import { PdtCard } from "../../Styles/ComponentsStyles/ProductCardStyle";
 
-export const ProductsCard = ({name, price, category,id }:IBurger) => {
+export const ProductsCard = ({ name, price, category, id }: IBurger) => {
   const [userId] = useState(() => {
     const current = localStorage.getItem("userId") || "";
     return current;
@@ -13,22 +14,24 @@ export const ProductsCard = ({name, price, category,id }:IBurger) => {
     return JSON.parse(current);
   });
 
-  const {findProduct} = UseProducts();
-  const {addToUserCart} = UseUser();
+  const { findProduct } = UseProducts();
+  const { addToUserCart } = UseUser();
 
-  const handleAdd = () =>{
-    const newPdt = {...findProduct(id), userId: parseInt(userId)}
-    addToUserCart(newPdt, token)
-  }
+  const handleAdd = () => {
+    const newPdt = { ...findProduct(id), userId: parseInt(userId) };
+    addToUserCart(newPdt, token);
+  };
 
   return (
-    <div>
-      <h5>{name}</h5>
-      <div>
-        <p>{price}</p>
-        <p>{category}</p>
+    <PdtCard>
+      <div className="imgContainer"></div>
+
+      <div className="info">
+        <h5 className="title">{name}</h5>
+        <p className="category">Categoria: {category}</p>
+        <p className="price">R$ {price}</p>
       </div>
       <button onClick={handleAdd}>Adicionar</button>
-    </div>
+    </PdtCard>
   );
 };
